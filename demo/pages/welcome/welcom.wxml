@@ -1,0 +1,8 @@
+<!--pages/welcome/welcom.wxml-->
+<view>
+  <image src="/images/zly.jpg "></image>
+  <text>hello,七月</text>
+  <view>
+    <text>开启小程序之旅</text>
+  </view>
+</view>
