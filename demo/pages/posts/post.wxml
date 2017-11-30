@@ -1,27 +1,31 @@
 <!--pages/posts/post.wxml-->
 <view>
   <swiper class='swiper' indicator-dots='true' autoplay='true' interval='5000'>
-    <swiper-item >
+    <swiper-item>
       <image src='/images/zly.jpg'></image>
     </swiper-item>
     <swiper-item>
       <image src='/images/2.jpg'></image>
     </swiper-item>
-    <swiper-item>content</swiper-item>
+    <swiper-item>
+      <image src='/images/3.jpg'></image>
+    </swiper-item>
   </swiper>
-  <view class='post-container'>
-    <view class='post-author-date'>
-      <image src='/images/zly.jpg' class="post-author"></image>
-      <text class='post-date'>2015-5-32</text>
+  <block wx:for="{{ post_key }}" wx:for-item="item">
+    <view class='post-container'>
+      <view class='post-author-date'>
+        <image src='{{ item.avatar }}' class="post-author"></image>
+        <text class='post-date'>{{ item.date }}</text>
+      </view>
+      <text class='post-title'>{{ item.title }}</text>
+      <image class='post-image' src='{{ item.headImgSrc }}'></image>
+      <text class='post-content'>{{ item.detail }}</text>
+      <view class='post-like'>
+        <image class='post-like-image' src='{{ item.avatar }}'></image>
+        <text class='post-like-count'>{{ item.collection }}</text>
+        <image class='post-like-image' src='{{ item.avatar }}'></image>
+        <text class='post-like-count'>{{ item.reading }}</text>
+      </view>
     </view>
-    <text class='post-title'>我是标题</text>
-    <image class='post-image' src='/images/1.jpg'></image>
-    <text class='post-content'>我是文章简介我是文章简介我是文章简介我是文章简介我是文章简介我是文章简介我是文章简介我是文章简介我是文章简介我是文章简介我是文章简介我是文章简介我是文章简介我是文章简介我是文章简介我是文章简介我是文章简介我是文章简介我是文章简介我是文章简介</text>
-    <view class='post-like'>
-      <image class='post-like-image' src='/images/zly.jpg' ></image>
-      <text class='post-like-count'>92</text>
-      <image class='post-like-image' src='/images/zly.jpg' ></image>
-      <text class='post-like-count'>65</text>
-    </view>
-  </view>
+  </block>
 </view>
