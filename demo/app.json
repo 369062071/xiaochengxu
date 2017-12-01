@@ -1,7 +1,10 @@
 {
   "pages":[
-    "pages/welcome/welcom",
-    "pages/posts/post"  
+   "pages/welcome/welcom",
+    "pages/posts/post",
+    "pages/post-detail/post-detail"
+    
+   
    
     
   ],

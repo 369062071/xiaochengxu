@@ -1,30 +1,18 @@
-// pages/posts/post.js
-var postData = require('../../data/data.js').postList
-
+// pages/post-detail/post-detail.js
 Page({
 
-  onPostTap(e) {
-    var postId = e.currentTarget.dataset.postid;
-    //页面跳转
-    wx.navigateTo({
-      url: '../post-detail/post-detail',
-    })
-  },
   /**
    * 页面的初始数据
    */
   data: {
-   
+  
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //数据绑定
-    this.setData({
-      post_key:postData
-    })
+  
   },
 
   /**
