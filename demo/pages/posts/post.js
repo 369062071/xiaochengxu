@@ -7,7 +7,7 @@ Page({
     var postId = e.currentTarget.dataset.postid;
     //页面跳转
     wx.navigateTo({
-      url: '../post-detail/post-detail',
+      url: '../post-detail/post-detail?id='+postId
     })
   },
   /**

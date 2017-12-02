@@ -1,4 +1,6 @@
 // pages/post-detail/post-detail.js
+// var postData = require('../../data/data.js').postList
+import postsData from '../../data/data.js'
 Page({
 
   /**
@@ -12,7 +14,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var postId = options.id;
+    console.log("这是传过来的postID "+postId);
+    var postData = postsData.postList[postId];
+    console.log( postData)
+    // 数据绑定
+    this.setData(
+      {
+        postData : postData
+      }
+    )
   },
 
   /**
