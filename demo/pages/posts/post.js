@@ -1,9 +1,12 @@
 // pages/posts/post.js
-var postData = require('../../data/data.js').postList
+var postData = require('../../data/data.js').postList;
+import { buttonClicked } from '../../comment/conmment.js';
 
 Page({
-
+  
   onPostTap(e) {
+    //防连点
+    buttonClicked(this,500);
     var postId = e.currentTarget.dataset.postid;
     //页面跳转
     wx.navigateTo({
@@ -14,7 +17,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-   
+    buttonClicked: false
   },
 
   /**
