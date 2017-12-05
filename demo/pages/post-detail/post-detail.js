@@ -2,6 +2,7 @@
 // var postData = require('../../data/data.js').postList
 import postsData from '../../data/data.js';
 import { buttonClicked } from '../../comment/conmment.js';
+let app = getApp();
 
 Page({
 
@@ -18,9 +19,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
+    
     var postId = options.id;
     //postId传递
-    this.data.postId = postId
+    this.data.postId = postId;
+
     console.log("这是传过来的postID "+postId);
     var postData = postsData.postList[postId];
 
@@ -45,7 +49,35 @@ Page({
       var postsCollected = {};
       postsCollected[postId] = false;
       wx.setStorageSync('posts_collectd',postsCollected)
+    };
+    //页面切换监听音乐播放状态
+    console.log()
+    if (app.globalData.g_isPlayingMusic && app.globalData.g_currentMusicPostId === postId){
+      this.setData({
+        isPlayingMusic:true
+      })
     }
+    this.setAudio();
+    
+  },
+  setAudio() {
+    //监听音乐播放
+    wx.onBackgroundAudioPlay(() => {
+      this.setData({
+        isPlayingMusic: true
+      });
+      //修改全局监听变量
+      app.globalData.g_isPlayingMusic = false;
+      app.globalData.g_currentMusicPostId = this.data.postId;
+    });
+    wx.onBackgroundAudioPause(() => {
+      this.setData({
+        isPlayingMusic: false
+      });
+      //修改全局监听变量
+      app.globalData.g_isPlayingMusic = true;
+      app.globalData.g_currentMusicPostId = null;
+    })
   },
   // 点击收藏
   onCollectionTap(e) {
@@ -103,16 +135,27 @@ Page({
   },
   onMusicTap (e) {
     const isPlayingMusic = this.data.isPlayingMusic;
-    const backgroundAudioManager = wx.getBackgroundAudioManager()
+    const backgroundAudioManager = wx.getBackgroundAudioManager();
+    const music = postsData.postList[this.data.postId].music;
+    console.log('播放地址'+postsData.postList[this.data.postId].music.url)
     if(isPlayingMusic) {
       console.log('暂停播放')
       backgroundAudioManager.pause();
-      
-      this.data.isPlayingMusic = false;
+      this.setData({
+        isPlayingMusic : false
+      });
+     
     }else{
-      backgroundAudioManager.src = 'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46';
-      this.data.isPlayingMusic = true;
+      backgroundAudioManager.src = music.url;
+      backgroundAudioManager.title = music.title;
+      this.setData({
+        isPlayingMusic : true
+      });
+      
     }
+  },
+  onHide() {
+
   }
 
 })
