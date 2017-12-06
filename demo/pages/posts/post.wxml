@@ -2,15 +2,9 @@
 <import src="post-item/post-item-template.wxml" />
 
 <view>
-  <swiper class='swiper' indicator-dots='true' autoplay='true' interval='5000'>
-    <swiper-item>
-      <image src='/images/zly.jpg'></image>
-    </swiper-item>
-    <swiper-item>
-      <image src='/images/2.jpg'></image>
-    </swiper-item>
-    <swiper-item>
-      <image src='/images/3.jpg'></image>
+  <swiper class='swiper' catchtap="{{ !buttonClicked ? 'onSwiperItem' : ''  }}"  indicator-dots='true' autoplay='true' interval='5000'>
+    <swiper-item wx:for="{{ swiperImgUrl }}" wx:for-item="item" wx:for-index="idx" wx:key="idx">
+      <image src='{{ item }}' data-postId="{{ idx }}" ></image>
     </swiper-item>
   </swiper>
   <block wx:for="{{ post_key }}" wx:for-item="item" wx:key="item.postId">

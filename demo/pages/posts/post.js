@@ -10,16 +10,30 @@ Page({
     var postId = e.currentTarget.dataset.postid;
     //页面跳转
     wx.navigateTo({
-      url: '../post-detail/post-detail?id='+postId
+      url: '../post-detail/post-detail?id='+postId,
+    })
+  },
+  onSwiperItem (e) {
+    //防连点
+    buttonClicked(this, 500);
+    console.log(e)
+    var postId = e.target.dataset.postid;
+    wx.navigateTo({
+      url: '../post-detail/post-detail?id=' + postId,
     })
   },
   /**
    * 页面的初始数据
    */
   data: {
-    buttonClicked: false
+    buttonClicked: false,
+    swiperImgUrl:[
+      // { url: '/images/1.jpg'},
+      // { url: '/images/2.jpg' },
+      // { url: '/images/3.jpg' }
+      '/images/1.jpg', '/images/2.jpg', '/images/3.jpg'
+    ]
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
