@@ -1,0 +1,6 @@
+<!--pages/register/register.wxml-->
+<view class='container'>
+  <view class='g-bg'>
+    <image src='/images/register-bg.png' class='bg-pic'></image>
+  </view>
+</view>
