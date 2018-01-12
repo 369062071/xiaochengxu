@@ -1,9 +1,97 @@
 /* pages/register/register.wxss */
-.g-bg {
+
+.position-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.g-reg {
+  display: none;
+}
+
+.wrapper {
+  height: 890rpx;
+  margin: 0 auto;
+  position: relative;
+}
+
+.bg-pic {
   width: 550rpx;
   height: 520rpx;
 }
-.bg-pic {
+
+.btn-reg {
+  width: 650rpx;
+  border: none;
+  color: #fff;
+  background: #e4414b;
+}
+
+.m-data-box {
+  width: 650rpx;
+  display: flex;
+  border: 1px solid #e4414b;
+  color: #e4414b;
+}
+
+.u-name {
+  width: 428rpx;
+  flex:0 0 428rpx;
+  display: flex;
+  padding: 24rpx 36rpx;
+}
+
+.name-input {
+  /* padding: 38rpx; */
+}
+
+.u-sex {
+  flex-grow: 1;
+  padding: 24rpx 0;
+  border-left: 1px solid #e4414b;
+  text-align: center;
+  position: relative;
+}
+
+.triangle-down {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 10px solid red;
+  position: absolute;
+  top: 50%;
+  right: 12rpx;
+  transform: translateY(-50%)
+}
+.pick-list{
   width: 100%;
-  height: 100%;
+  position: absolute;
+  left: -2rpx;
+  bottom: -136rpx;
+  border: 1px solid #e4414b;
+  background: #fff;
+  
+}
+.pick-item{
+  padding: 6rpx 0;
+  transition: all .3s;
+}
+.man {
+  border-bottom: 1px solid #e4414b;
+}
+.pick-item:active{
+  background: #eee;
+}
+.pick-item:last-child{
+  border: none;
+}
+
+.hide{
+ display: none;
+}
+.show{ 
+ display: block;
 }
