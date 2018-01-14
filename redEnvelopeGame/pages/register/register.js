@@ -7,6 +7,7 @@ Page({
   data: {
     sex: ['先生', '女士'],
     showPick: 0,
+    isShowSubmit: false,
     uName:'',
     uSex:''
   },
@@ -28,27 +29,32 @@ Page({
       showView: _showPick
     })
   },
-  // getUserName (e) {
-  //   this.setData({
-  //     uName: e.detail.value.uName
-  //   })
-  // },
-  getIptVal (e) {
-    console.log(e)
-    this.setData({
-      uName: e.detail.value
-    })
-  },
-  getUsex (e) {
-    this.data.uSex = e.currentTarget.dataset.text;
-    console.log(this.data.uSex)
-  },
-  submitTap () {
-    let uName = this.data.uName
+  formSubmit (e) {
+    let reqData = e.detail.value;
+    for (let key in reqData) {
+      if (reqData[key] === '' || reqData[key] === void 0) {
+        wx.showModal({
+          title: '提示',
+          content: '请输入正确的姓名',
+          success: (res) => {
+            if (res.confirm) {
+              wx.redirectTo({
+                url: '/pages/myCenter/mycenter'
+              })
+            }
+          }
+        })
+        return
+      }
+    }
+    console.log('form发生了submit事件，携带数据为：', reqData)
     
-    let uSex = this.data.uSex
-  
-    console.log('贵姓：', uName, uSex)
+  },
+  submitShowTap () {
+    let _isShowSubmit = !this.data.isShowSubmit
+    this.setData({
+      isShowSubmit: _isShowSubmit
+    })
   },
   /**
    * 生命周期函数--监听页面加载

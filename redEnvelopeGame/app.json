@@ -1,14 +1,15 @@
 {
-  "pages":[
-    "pages/register/register",
+  "pages": [
+    "pages/sendEnvelope/sendEnvelope",
     "pages/index/index",
+    "pages/myCenter/mycenter",
+    "pages/register/register",
     "pages/logs/logs"
     
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#282828",
+    "navigationBarTextStyle": "white"
   }
 }

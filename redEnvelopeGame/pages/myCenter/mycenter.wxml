@@ -1,0 +1,22 @@
+<!--pages/myCenter/mycenter.wxml-->
+<view class='main'>
+  <view class='g-main'>
+    <image src='/images/center-bg.png' class='bg-pic'></image>
+    <view class='m-user'>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <view class="userinfo-nickname">{{userInfo.nickName}}</view>
+      <view class='userinfo-money'>￥88.00元</view>
+    </view>
+    <button class='btn-send' bindtap='jumpTap'>我要发红包</button>
+    <view class='m-introduce'>
+        <view>门店地址：哔哩哔哩</view>
+      <view>门店电话：8008008820</view>
+    </view>
+  </view>
+  <view class='g-footer'>
+    <view class='footer-item'>我抢到的</view>
+    <view class='footer-item'>我发出的</view>
+    <view class='footer-item'>常见问题</view>
+  </view>
+
+</view>

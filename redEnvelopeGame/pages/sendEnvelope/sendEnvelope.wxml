@@ -1,0 +1,38 @@
+<!--pages/sendEnvelope/sendEnvelope.wxml-->
+<view class='container'>
+  <view class='m-bg'>
+    <image src="{{tempFilePath ? tempFilePath : '/images/send-bg.png' }}" class='u-bg-pic'></image>
+    <view class='u-change' bindtap='chooseImgTap'>点击更换</view>
+  </view>
+  <view class='g-user'>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+
+  <view class='g-envelop'>
+    <view class='u-item'>
+      <text>红包总额（元）</text>
+      <input name='totalMoney' type='number' placeholder='0.00'></input>
+    </view>
+    <view class='chang-type'>每人抢到的金额随机，<text style='color:#e4414b'>改为普通红包</text></view>
+    <view class='u-item'>
+      <text>红包个数（个）</text>
+      <input name='count' type='number' placeholder='0.00'></input>
+    </view>
+    <view class='u-item' wx:if=''>
+      <text>单个红包最大值（元）</text>
+      <input name='count' type='number' placeholder='0.00'></input>
+    </view>
+    <view class='btn-wrapper'>
+      <button type='button' class='btn-send'>发红包</button>
+      <view class='u-hint'>需支付￥5元，优先使用余额￥5.00</view>
+    </view>
+  </view>
+
+  <view class='g-footer'>
+    <view class='footer-item'>我的记录</view>
+    <view class='footer-item'>余额提现</view>
+    <view class='footer-item'>常见问题</view>
+  </view>
+  
+</view>

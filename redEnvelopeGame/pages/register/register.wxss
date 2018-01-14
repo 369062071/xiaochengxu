@@ -7,9 +7,7 @@
   transform: translate3d(-50%, -50%, 0);
 }
 
-.g-reg {
-  display: none;
-}
+
 
 .wrapper {
   height: 890rpx;
@@ -43,9 +41,6 @@
   padding: 24rpx 36rpx;
 }
 
-.name-input {
-  /* padding: 38rpx; */
-}
 
 .u-sex {
   flex-grow: 1;
